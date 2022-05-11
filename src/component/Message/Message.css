@@ -1,0 +1,15 @@
+.message {
+  @apply flex items-center px-4 py-4;
+}
+
+.sent {
+  @apply flex-row-reverse;
+}
+
+.sent p {
+  @apply text-white bg-green-600 rounded-xl mr-4 px-4 py-1;
+}
+
+.received p {
+  @apply bg-slate-400 text-black rounded-xl ml-4 px-4 py-1;
+}

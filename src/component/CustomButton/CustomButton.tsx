@@ -1,5 +1,4 @@
-import * as auth from "firebase/auth";
-import React, { MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
 
 interface props {
   onEvent: MouseEventHandler;
@@ -7,7 +6,7 @@ interface props {
   tailwind: string;
 }
 
-const Sign = React.memo(({ onEvent, children, tailwind = "" }: props) => {
+const Sign = ({ onEvent, children, tailwind = "" }: props) => {
   const style = `sign-in-button ${tailwind}`;
 
   return (
@@ -15,6 +14,6 @@ const Sign = React.memo(({ onEvent, children, tailwind = "" }: props) => {
       {children}
     </button>
   );
-});
+};
 
 export default Sign;
