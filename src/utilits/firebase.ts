@@ -22,4 +22,6 @@ const app = initializeApp({
   measurementId: VITE_MEASUREMENT_ID,
 });
 
+getAnalytics(app);
+
 export const db = getFirestore(app);
