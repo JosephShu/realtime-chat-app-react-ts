@@ -7,12 +7,14 @@ const Login = () => {
   };
 
   return (
-    <CustomButton
-      tailwind="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-      onEvent={SignIn}
-    >
-      Loggin with Google
-    </CustomButton>
+    <div className="h-24 w-52 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-between items-center">
+      <CustomButton tailwind="block" onEvent={SignIn}>
+        Loggin with Google
+      </CustomButton>
+      <CustomButton tailwind="block" onEvent={SignIn}>
+        Loggin with Facebook
+      </CustomButton>
+    </div>
   );
 };
 

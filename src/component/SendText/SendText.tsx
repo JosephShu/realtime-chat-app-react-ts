@@ -1,21 +1,30 @@
-import { db } from "../../utilits/firebase";
-import { getAuth, User } from "firebase/auth";
+import {
+  useState,
+  useCallback,
+  useContext,
+  ChangeEvent,
+  FormEvent,
+} from "react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { useState, useCallback, ChangeEvent } from "react";
+import { User } from "firebase/auth";
+import { FirebaseContext } from "../../context/FirebaseProvider";
 
 const SendText = () => {
   const [text, setText] = useState<string>("");
+  const { user, db } = useContext(FirebaseContext);
 
-  const handlerChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
-  const contentHandler = useCallback(handlerChange, [handlerChange]);
+  const contentHandler = useCallback(handleChange, [handleChange]);
 
-  const sendMessage = async (e: any) => {
+  const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     if (!text) return;
 
-    const { uid, photoURL } = getAuth().currentUser as User;
+    const { uid, photoURL } = user as User;
+
     const docRef = await addDoc(collection(db, "messages"), {
       message: text,
       createdAt: serverTimestamp(),

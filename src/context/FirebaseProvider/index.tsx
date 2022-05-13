@@ -11,7 +11,9 @@ interface contextValue {
   db: Firestore;
 }
 
-export const FirebaseContext = createContext<null | contextValue>(null);
+//eslint-disable-next-line
+//@ts-ignore
+export const FirebaseContext = createContext<contextValue>();
 
 export const FirebaseProvider = ({ children }: { children: JSX.Element }) => {
   const [user, setUser] = useState<User>();

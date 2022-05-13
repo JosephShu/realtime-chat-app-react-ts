@@ -9,7 +9,6 @@ import CustomHeader from "../CustomHeader";
 import SendText from "../SendText";
 import Logo from "../Svg/Logo";
 import Message from "../Message";
-
 import { useRef, useEffect } from "react";
 import { db } from "../../utilits/firebase";
 

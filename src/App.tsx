@@ -9,16 +9,14 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <Router>
-        <FirebaseProvider>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/chat" element={<ChatRoom />} />
-          </Routes>
-        </FirebaseProvider>
-      </Router>
-    </>
+    <Router>
+      <FirebaseProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/chat" element={<ChatRoom />} />
+        </Routes>
+      </FirebaseProvider>
+    </Router>
   );
 }
 

@@ -1,5 +1,5 @@
-import { memo } from "react";
-import { getAuth } from "firebase/auth";
+import { memo, useContext } from "react";
+import { FirebaseContext } from "../../context/FirebaseProvider";
 
 interface createdAtType {
   nanoseconds: number;
@@ -14,7 +14,8 @@ interface Props {
 }
 
 const Message = ({ message, uid, photoURL }: Props) => {
-  const messageClass = uid === getAuth().currentUser?.uid ? "sent" : "received";
+  const { user } = useContext(FirebaseContext);
+  const messageClass = uid === user?.uid ? "sent" : "received";
 
   return (
     <div className={`message ${messageClass}`}>
